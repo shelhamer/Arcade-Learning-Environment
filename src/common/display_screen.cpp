@@ -94,10 +94,6 @@ void DisplayScreen::display_screen() {
 }
 
 void DisplayScreen::poll() {
-    SDL_Event event;
-    while(SDL_PollEvent(&event)) {
-        handleSDLEvent(event);
-    }
 };
 
 void DisplayScreen::handleSDLEvent(const SDL_Event& event) {
