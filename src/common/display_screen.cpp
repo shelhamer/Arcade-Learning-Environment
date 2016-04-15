@@ -24,7 +24,7 @@ DisplayScreen::DisplayScreen(MediaSource* mediaSource,
         media_source(mediaSource),
         my_sound(sound),
         colour_palette(palette),
-        delay_msec(17)
+        delay_msec(0)
 {
     screen_height = media_source->height();
     screen_width = media_source->width();
@@ -36,7 +36,7 @@ DisplayScreen::DisplayScreen(MediaSource* mediaSource,
         fprintf(stderr, "Could not initialize SDL: %s\n", SDL_GetError());
         exit(1);
     }
-    screen = SDL_SetVideoMode(window_width, window_height, 8, SDL_HWPALETTE);
+    screen = SDL_SetVideoMode(window_width, window_height, 8, SDL_HWPALETTE | SDL_FULLSCREEN);
     if (screen == NULL) {
         fprintf(stderr, "Couldn't Initialize Screen: %s\n", SDL_GetError());
         exit(1);
